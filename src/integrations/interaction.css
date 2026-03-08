@@ -7,3 +7,11 @@
 @utility touch-callout-none {
     -webkit-touch-callout: none;
 }
+
+@layer components {
+    .m3-after-state-layer {
+        @apply after:content-[''] after:absolute after:inset-0 after:size-full after:rounded-[inherit]
+            after:opacity-0 after:pointer-events-none after:bg-current
+            group-hover:after:opacity-8 group-focus-visible:after:opacity-10 group-active:after:opacity-10;
+    }
+}
