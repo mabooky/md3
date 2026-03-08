@@ -17,10 +17,10 @@ export function TouchTarget({
         <button
             ref={ref}
             className={cn(
-                `relative focus-visible:outline-none cursor-pointer
+                `relative w-fit h-fit focus-visible:outline-none cursor-pointer
                 inline-flex justify-center items-center group`,
                 minimumTouchTarget === 'box' && `min-w-12 min-h-12`,
-                minimumTouchTarget === 'hitbox' && `m3-minimum-touch-target`,
+                minimumTouchTarget === 'hitbox' && `m3-after-minimum-touch-target`,
                 className
             )}
             disabled={disabled}

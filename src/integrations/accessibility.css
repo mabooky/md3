@@ -1,7 +1,7 @@
 @layer components {
-    .m3-minimum-touch-target {}
+    .m3-after-minimum-touch-target {}
 
-    .m3-minimum-touch-target::after {
+    .m3-after-minimum-touch-target::after {
         content: "";
         position: absolute;
         inset: 50%;

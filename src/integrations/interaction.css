@@ -4,6 +4,6 @@
 
 @custom-variant selected (&[data-selected="true"], &[aria-selected="true"]);
 
-@theme inline {
-    
+@utility touch-callout-none {
+    -webkit-touch-callout: none;
 }

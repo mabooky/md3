@@ -12,13 +12,17 @@ export function StatefulContainer({
     return (
         <div
             ref={ref}
-            className={cn(`relative`, className)}
+            className={cn(
+                `relative group-focus-visible:outline-3 group-focus-visible:outline-offset-2
+                group-focus-visible:outline-secondary`,
+                `after:content-[''] after:absolute after:inset-0 after:size-full after:rounded-[inherit]
+                after:opacity-0 after:pointer-events-none after:bg-current
+                group-hover:after:opacity-8 group-focus-visible:after:opacity-10 group-active:after:opacity-10`,
+                className
+            )}
             {...props}>
 
             {children}
-
-            {/* State Layer */}
-            <div className="absolute inset-0 size-full rounded-[inherit] opacity-0 pointer-events-none bg-current group-hover:opacity-8 group-focus:opacity-10 group-active:opacity-10" />
 
         </div>
     )
