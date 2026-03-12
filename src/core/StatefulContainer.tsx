@@ -1,11 +1,14 @@
 import { ComponentProps } from "react";
 import { cn } from "@m3/utils/cn";
 
-export type StatefulContainerProps = ComponentProps<"div">;
+export type StatefulContainerProps = ComponentProps<"div"> & {
+    usesRipple?: boolean;
+}
 
 export function StatefulContainer({
     ref,
     className,
+    usesRipple = false,
     children,
     ...props 
 }: StatefulContainerProps) {
@@ -13,9 +16,8 @@ export function StatefulContainer({
         <div
             ref={ref}
             className={cn(
-                `relative group-focus-visible:outline-3 group-focus-visible:outline-offset-2
-                group-focus-visible:outline-secondary`,
-                'm3-after-state-layer',
+                `m3-stateful-container`,
+                !usesRipple && 'm3-after-state-layer',
                 className
             )}
             {...props}>
