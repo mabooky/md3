@@ -1,43 +1,53 @@
 'use client';
 
+import { Icon } from "@m3/core/Icon";
 import { StatefulContainer } from "@m3/core/StatefulContainer";
 import { TouchTarget, TouchTargetProps } from "@m3/core/TouchTarget";
 import { cn } from "@m3/utils/cn";
-import { ComponentProps, createContext, useContext, useState } from "react";
+import { ComponentProps, createContext, MouseEvent, useContext } from "react";
+
+/* NavigationBarContext 정의 -------------------------------------------------- */
 
 type NavigationBarContextValue = {
     itemLayout: NavigationBarProps['itemLayout'];
-    activeItem: string;
-    onItemClick: (item: string) => void;
+    value: string;
+    onChange?: (value: string) => void;
+    onItemReselect?: (value: string) => void;
 }
 
-const NavigationBarContext = createContext<NavigationBarContextValue>({
-    itemLayout: 'vertical',
-    activeItem: '',
-    onItemClick: () => {}
-});
+const NavigationBarContext = createContext<NavigationBarContextValue | null>(null);
 
 function useNavigationBarContext() {
-    return useContext(NavigationBarContext);
+    const context = useContext(NavigationBarContext);
+    
+    if (!context) {
+        throw new Error("useNavigationBarContext 함수는 NavigationBar 컴포넌트 내부에서만 사용되어야 합니다.");
+    }
+
+    return context;
 }
 
-/* -------------------------------------------------------------------------- */
 
-type NavigationBarProps = ComponentProps<"nav"> & {
+
+/* NavigationBarRoot -------------------------------------------------------- */
+
+type NavigationBarProps = Omit<ComponentProps<"nav">, "onChange"> & {
     itemLayout?: 'vertical' | 'horizontal';
-    activeItem: string;
+    value: string,
+    onChange?: (value: string) => void;
+    onItemReselect?: (value: string) => void;
 };
 
 export function NavigationBarRoot({
     ref,
     className,
     itemLayout = 'vertical',
-    activeItem,
+    value,
+    onChange,
+    onItemReselect,
     children,
     ...props
 }: NavigationBarProps) {
-    const [currentActiveItem, setCurrentActiveItem] = useState(activeItem);
-
     return (
         <nav
             ref={ref}
@@ -46,11 +56,7 @@ export function NavigationBarRoot({
             {...props}>
 
             <NavigationBarContext.Provider
-                value={{ 
-                    itemLayout: itemLayout,
-                    activeItem: currentActiveItem,
-                    onItemClick: (item) => setCurrentActiveItem(item)
-                }}>
+                value={{ itemLayout, value, onChange, onItemReselect }}>
 
                 {children}
 
@@ -60,17 +66,21 @@ export function NavigationBarRoot({
     );
 }
 
-/* -------------------------------------------------------------------------- */
+
+
+/* NavigationBarItem -------------------------------------------------------- */
 
 export type NavigationBarItemProps = TouchTargetProps & {
     icon: string;
-    label: string;
+    value: string;
+    label?: string;
 }
 
 export function NavigationBarItem({
     ref,
     className,
     icon,
+    value,
     label,
     children,
     ...props
@@ -80,24 +90,32 @@ export function NavigationBarItem({
     return (
         <TouchTarget
             ref={ref}
-            className={cn('m3-navigation-bar__item', className)}
-            data-active={label === ctx.activeItem}
-            onClick={() => ctx.onItemClick(label)}
+            className={cn('m3-navigation-bar-item', className)}
+            data-active={value === ctx.value}
+            onClick={(e: MouseEvent<HTMLButtonElement>) => {
+                if (value === ctx.value) {
+                    ctx.onItemReselect?.(value);
+                } else {
+                    ctx.onChange?.(value);
+                }
+
+                props.onClick?.(e);
+            }}
             
             {...props}>
 
             <StatefulContainer
-                className="m3-navigation-bar__active-indicator">
+                className="m3-navigation-bar-item__active-indicator">
 
-                <span className="material-symbols-outlined m3-navigation-bar__icon">{icon}</span>
+                <Icon className="m3-navigation-bar-item__icon">{icon}</Icon>
 
                 {ctx.itemLayout === 'horizontal' && 
-                    <span className="m3-navigation-bar__label">{label}</span>}
+                    <span className="m3-navigation-bar-item__label">{label ?? value}</span>}
 
             </StatefulContainer>
 
             {ctx.itemLayout === 'vertical' && 
-                <span className="m3-navigation-bar__label">{label}</span>}
+                <span className="m3-navigation-bar-item__label">{label ?? value}</span>}
             
         </TouchTarget>
     );
