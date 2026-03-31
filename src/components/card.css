@@ -1,0 +1,39 @@
+@layer components {
+    div.m3-card, .m3-card__container {
+        border-radius: var(--md-sys-shape-corner-value-medium);
+        color: var(--md-sys-color-on-surface);
+    }
+
+    div.m3-card {
+        width: fit-content;
+        height: fit-content;
+    }
+
+    div.m3-card[data-variant="elevated"], .m3-card[data-variant="elevated"] .m3-card__container {
+        z-index: 10;
+        background-color: var(--md-sys-color-surface-container-low);
+        box-shadow: var(--tailored-elevation-shadow-level1);
+    }
+
+    .m3-card[data-variant="elevated"]:hover .m3-card__container {
+        z-index: 11;
+        box-shadow: var(--tailored-elevation-shadow-level2);
+    }
+
+    .m3-card[data-variant="elevated"]:disabled .m3-card__container {
+        background-color: var(--md-sys-color-surface);
+    }
+
+    div.m3-card[data-variant="filled"], .m3-card[data-variant="filled"] .m3-card__container {
+        background-color: var(--md-sys-color-surface-container-highest);
+    }
+
+    div.m3-card[data-variant="outlined"], .m3-card[data-variant="outlined"] .m3-card__container {
+        background-color: var(--md-sys-color-surface);
+        border: 1px solid var(--md-sys-color-outline-variant);
+    }
+
+    .m3-card[data-variant="outlined"]:disabled .m3-card__container {
+        border-color: color-mix(in oklab, var(--md-sys-color-outline) 12%, transparent);
+    }
+}

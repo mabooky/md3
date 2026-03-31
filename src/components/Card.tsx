@@ -1,69 +1,50 @@
 import { cn } from "@m3/utils/cn";
-import { StatefulContainer, StatefulContainerProps } from "../core/StatefulContainer";
-import { ComponentProps } from "react";
+import { TouchTarget, TouchTargetProps } from "@m3/core/TouchTarget";
+import { StatefulContainer } from "@m3/core/StatefulContainer";
+import { ComponentProps, Ref } from "react";
+import { InteractiveComponent, InteractiveComponentProps } from "@m3/core/InteractiveComponent";
 
-interface CardProps extends StatefulContainerProps {
-    variant?: "elevated" | "filled" | "outlined";
-    disabled?: boolean;
+type NonActionableCardProps = ComponentProps<'div'> & {
+    actionable?: false;
 }
 
-export function CardRoot({
-    className,
-    variant = "elevated",
-    disabled = false,
-    children,
-    ...props
-}: CardProps) {
-    const variantStyles = {
-        elevated: `
-            bg-surface-container-low z-10 shadow-elevation-1 
-            hover:z-11 hover:shadow-elevation-2
-            disabled:bg-surface
-        `,
-        filled: `
-            bg-surface-container-highest
-        `,
-        outlined: `
-            bg-surface border border-outline-variant
-            disabled:border-outline/12
-        `,
-    };
-
-    return (
-        <StatefulContainer
-            className={cn(
-                'rounded-md text-on-surface',
-                variantStyles[variant],
-                className
-            )}
-            stateLayerColor="on-surface"
-            disabled={disabled}
-            {...props}>
-            {children}
-        </StatefulContainer> 
-    )
+type ActionableCardProps = InteractiveComponentProps & {
+    actionable: true;
 }
 
-export interface CardHeadlineProps extends ComponentProps<"p"> {
-
+type CardProps = (NonActionableCardProps | ActionableCardProps) & {
+    actionable?: boolean;
+    variant?: "elevated" | "filled" | "outlined";   
 }
 
-export function CardHeadline({
-    ref,
-    className,
-    children,
-    ...props
-}: CardHeadlineProps) {
-    return (
-        <p
-            ref={ref}
-            className="typescale-display-small mx-[16px]"
-            {...props}>
-            {children}
-        </p>
-    )
-}
+export function Card(props: CardProps) {
+    if (props.actionable) {
+        const { ref, className, containerClassName, variant, children, ...rest } = props;
+        return (
+            <InteractiveComponent
+                ref={ref}
+                className={cn("m3-card", className)}
+                containerClassName={cn("m3-card__container", containerClassName)}
+                data-variant={variant}
+                {...rest}>
+                
+                {children}
 
-export const Card = Object.assign(CardRoot, {
-    Headline: CardHeadline,
-})
+            </InteractiveComponent>
+        )
+    }
+    else {
+        const { ref, className, variant, children, ...rest } = props;
+        return (
+            <div
+                ref={ref}
+                className={cn("m3-card", className)}
+                data-variant={variant}
+                {...rest}>
+                
+                {children}
+
+            </div>
+        )
+    }
+}
