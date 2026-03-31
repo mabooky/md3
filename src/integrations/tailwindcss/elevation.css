@@ -1,6 +1,6 @@
 @theme {
-    --m3-elevation-shadow-2-color: color-mix(in oklab, var(--md-sys-color-shadow) 14%, transparent);
     --m3-elevation-shadow-1-color: color-mix(in oklab, var(--md-sys-color-shadow) 20%, transparent);
+    --m3-elevation-shadow-2-color: color-mix(in oklab, var(--md-sys-color-shadow) 14%, transparent);
     --m3-elevation-shadow-3-color: color-mix(in oklab, var(--md-sys-color-shadow) 12%, transparent);
 
     --shadow-elevation-0: 0px 0px 0px 0px var(--m3-elevation-shadow-1-color), 0px 0px 0px 0px var(--m3-elevation-shadow-2-color), 0px 0px 0px 0px var(--m3-elevation-shadow-3-color);
