@@ -12,7 +12,7 @@
     사용하는 것이 더 좋은 판단이라고 생각한다!
 */ 
 
-/* #region md.sys.state */
+/* #region md.sys.state ----------------------------------------------------- */
 :root {
     --md-sys-state-dragged-state-layer-opacity: 0.16;
     --md-sys-state-pressed-state-layer-opacity: 0.1;
@@ -22,7 +22,7 @@
 }
 /* #endregion */
 
-/* #region md.sys.color */
+/* #region md.sys.color ----------------------------------------------------- */
 /* ThemeProvider가 없는 경우를 대비해 data 속성 없는 경우에도 정의! */
 :root {
     --md-sys-color-primary: rgb(101 85 143);
@@ -361,7 +361,7 @@
 }
 /* #endregion */
 
-/* #region md.sys.shape */
+/* #region md.sys.shape ----------------------------------------------------- */
 :root {
     --md-sys-shape-corner-value-none: 0rem;
     --md-sys-shape-corner-value-extra-small: 0.25rem;
@@ -375,11 +375,12 @@
 }
 /* #endregion */
 
-/* #region md.sys.motion */
+/* #region md.sys.motion ---------------------------------------------------- */
 /* ⬇️ MotionSchemeProvider가 없을 경우를 대비해 data-motion-scheme 속성이 없는 경우에도 정의 */
 :root {
     --md-sys-motion-spring-fast-spatial-duration: 350ms;
     --md-sys-motion-spring-fast-spatial-easing: cubic-bezier(0.42, 1.67, 0.21, 0.90);
+    --md-sys-motion-spring-fast-spatial: 350ms cubic-bezier(0.42, 1.67, 0.21, 0.90);
     --md-sys-motion-spring-default-spatial: 500ms cubic-bezier(0.38, 1.21, 0.22, 1.00);
     --md-sys-motion-spring-slow-spatial: 650ms cubic-bezier(0.39, 1.29, 0.35, 0.98);
     --md-sys-motion-spring-fast-effects: 150ms cubic-bezier(0.31, 0.94, 0.34, 1.00);
@@ -406,7 +407,7 @@
 }
 /* #endregion */
 
-/* #region md.sys.typography */
+/* #region md.sys.typography ------------------------------------------------ */
 :root {
     --md-sys-typescale-display-large-font: var(--font-roboto), sans-serif;
     --md-sys-typescale-display-large-weight: 400;
