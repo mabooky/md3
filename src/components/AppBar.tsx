@@ -5,9 +5,7 @@ import { Container, ContainerProps } from "@m3/core/Container";
 import { IconButton, IconButtonProps } from "./IconButton";
 import { ComponentProps, createContext, useContext } from "react";
 
-export type AppBarProps = ContainerProps & {
-    variant?: 'search' | 'small' | 'medium-flexible' | 'large-flexible'
-}
+/* AppBarContext 정의 --------------------------------------------------------- */
 
 type AppBarContextValue = {
     variant: NonNullable<AppBarProps['variant']>;
@@ -17,6 +15,14 @@ const AppBarContext = createContext<AppBarContextValue>({ variant: 'small' });
 
 function useAppBarContext() {
     return useContext(AppBarContext);
+}
+
+
+
+/* AppBarRoot --------------------------------------------------------------- */
+
+export type AppBarProps = ContainerProps & {
+    variant?: 'search' | 'small' | 'medium-flexible' | 'large-flexible'
 }
 
 export function AppBarRoot({
@@ -49,6 +55,10 @@ export function AppBarRoot({
     )
 }
 
+
+
+/* AppBarLeadingButton ------------------------------------------------------ */
+
 export type AppBarLeadingButtonProps = IconButtonProps;
 
 export function AppBarLeadingButton({
@@ -74,6 +84,10 @@ export function AppBarLeadingButton({
     )
 }
 
+
+
+/* AppBarTrailingButton ----------------------------------------------------- */
+
 export type AppBarTrailingButtonProps = IconButtonProps;
 
 export function AppBarTrailingButton({
@@ -96,6 +110,10 @@ export function AppBarTrailingButton({
         </IconButton>
     )
 }
+
+
+
+/* AppBarHeadline ----------------------------------------------------------- */
 
 export type AppBarHeadlineProps = ComponentProps<"p">;
 
