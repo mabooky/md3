@@ -19,6 +19,7 @@ export * from "./components/Tooltip"
 
 export * from "./core/Container"
 export * from "./core/Icon"
+export * from "./core/InteractiveComponent"
 export * from "./core/StatefulContainer"
 export * from "./core/TouchTarget"
 
