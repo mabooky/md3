@@ -1,0 +1,71 @@
+@layer components {
+    .md3-interactive-component {
+        position: relative;
+        width: fit-content;
+        height: fit-content;
+        cursor: pointer;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .md3-interactive-component:focus-visible {
+        outline: none; /* focus 상태의 외곽선은 container에서 처리 */
+    }
+
+    .md3-interactive-component:disabled {
+        pointer-events: none;
+
+        /* disabled 상태에 따른 불투명도를 하위 요소들에게 일관성 있게 적용하기가 어려움.
+        따라서 하위 요소들이 직접 불투명도를 적용하는 것이 좋을 것 같음! */
+    }
+
+    .md3-interactive-component[data-minimum-touch-target="box"] {
+        min-width: 48px;
+        min-height: 48px;
+    }
+
+    .md3-interactive-component[data-minimum-target="hitbox"]::after {
+        content: '';
+        position: absolute;
+        inset: 50%;
+        width: 48px;
+        height: 48px;
+        translate: -50% -50%;
+    }
+
+    .md3-interactive-component__container {
+        position: relative;
+    }
+
+    .md3-interactive-component:focus-visible .md3-interactive-component__container {
+        outline: var(--md-sys-color-secondary) solid 3px;
+        outline-offset: 2px;
+    }
+    
+    /* container의 after 요소를 state layer로 활용 */
+    .md3-interactive-component__container::after {
+        position: absolute;
+        content: '';
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: inherit;
+        opacity: 0;
+        pointer-events: none;
+        background-color: currentcolor;
+    }
+
+    /* .md3-interactive-component의 상호작용 이벤트에 state layer가 반응 */
+    .md3-interactive-component:hover .md3-interactive-component__container::after {
+        opacity: 0.08;
+    }
+
+    .md3-interactive-component:focus-visible .md3-interactive-component__container::after {
+        opacity: 0.1;
+    }
+
+    .md3-interactive-component:active .md3-interactive-component__container::after {
+        opacity: 0.1;
+    }
+}
