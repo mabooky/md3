@@ -4,6 +4,7 @@
 
 /* Layer 2: 코어 컴포넌트 스타일 정의 */
 @import "./core/interactive-component.css";
+@import "./core/state-layer.css";
 @import "./core/stateful-container.css";
 @import "./core/touch-target.css";
 
