@@ -21,6 +21,7 @@ export * from "./components/IconButton"
 export const NavigationBar = Object.assign(NavigationBarRoot, {
     Item: NavigationBarItem,
 })
+export type { NavigationBarProps, NavigationBarItemProps } from "./components/NavigationBar"
 export * from "./components/Pane"
 export * from "./components/Tooltip"
 
