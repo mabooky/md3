@@ -1,3 +1,5 @@
+'use client';
+
 import { useM3Context } from "@m3/providers/M3Provider";
 import { cn } from "@m3/utils/cn";
 import { ComponentProps } from "react";
