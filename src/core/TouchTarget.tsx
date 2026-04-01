@@ -16,7 +16,7 @@ export function TouchTarget({
     return (
         <button
             ref={ref}
-            className={cn('m3-touch-target', className)}
+            className={cn('md3-touch-target', className)}
             data-minimum-touch-target={minimumTouchTarget}
             disabled={disabled}
             {...props}>
