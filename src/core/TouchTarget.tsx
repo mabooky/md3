@@ -1,4 +1,4 @@
-import { cn } from "@m3/utils/cn";
+import clsx from "clsx";
 import { ComponentProps } from "react";
 
 export type TouchTargetProps = ComponentProps<"button"> & {
@@ -16,7 +16,7 @@ export function TouchTarget({
     return (
         <button
             ref={ref}
-            className={cn('md3-touch-target', className)}
+            className={clsx('md3-touch-target', className)}
             data-minimum-touch-target={minimumTouchTarget}
             disabled={disabled}
             {...props}>
