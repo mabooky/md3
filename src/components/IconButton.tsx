@@ -24,7 +24,6 @@ export function IconButton({
     return (
         <TouchTarget
             ref={ref}
-            aria-selected={selected}
             data-selected={selected}
             className="m3-icon-button"
             {...props}>
