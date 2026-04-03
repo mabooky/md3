@@ -140,6 +140,12 @@
         &[data-shape="square"][data-selected="true"] > :is(.md3-button__container, .md3-button__state-layer) {
             border-radius: calc(16 / 16 * 1rem); /* Fully rounded */
         }
+
+        > .md3-button__container > .md3-button__icon {
+            order: -1;
+            font-size: 20px !important;
+            margin-inline-end: calc(4 / 16 * 1rem);
+        }
     }
 
     .md3-button[data-size="sm"] {
@@ -179,6 +185,12 @@
 
         &[data-shape="square"][data-selected="true"] > :is(.md3-button__container, .md3-button__state-layer) {
             border-radius: calc(20 / 16 * 1rem); /* Fully rounded */
+        }
+
+        > .md3-button__container > .md3-button__icon {
+            order: -1;
+            font-size: 20px !important;
+            margin-inline-end: calc(8 / 16 * 1rem);
         }
     }
 
@@ -220,6 +232,12 @@
         &[data-shape="square"][data-selected="true"] > :is(.md3-button__container, .md3-button__state-layer) {
             border-radius: calc(28 / 16 * 1rem); /* Fully rounded */
         }
+
+        > .md3-button__container > .md3-button__icon {
+            order: -1;
+            font-size: 24px !important;
+            margin-inline-end: calc(8 / 16 * 1rem);
+        }
     }
 
     .md3-button[data-size="lg"] {
@@ -260,6 +278,12 @@
         &[data-shape="square"][data-selected="true"] > :is(.md3-button__container, .md3-button__state-layer) {
             border-radius: calc(48 / 16 * 1rem); /* Fully rounded */
         }
+
+        > .md3-button__container > .md3-button__icon {
+            order: -1;
+            font-size: 32px !important;
+            margin-inline-end: calc(12 / 16 * 1rem);
+        }
     }
 
     .md3-button[data-size="xl"] {
@@ -299,6 +323,12 @@
 
         &[data-shape="square"][data-selected="true"] > :is(.md3-button__container, .md3-button__state-layer) {
             border-radius: calc(68 / 16 * 1rem); /* Fully rounded */
+        }
+
+        > .md3-button__container > .md3-button__icon {
+            order: -1;
+            font-size: 40px !important;
+            margin-inline-end: calc(16 / 16 * 1rem);
         }
     }
 }
