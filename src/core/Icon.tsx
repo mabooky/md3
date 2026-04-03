@@ -4,7 +4,7 @@ import { useM3Context } from "@m3/providers/M3Provider";
 import clsx from "clsx";
 import { ComponentProps } from "react";
 
-type IconProps = ComponentProps<'span'>;
+export type IconProps = ComponentProps<'span'>;
 
 export function Icon({
     ref,
