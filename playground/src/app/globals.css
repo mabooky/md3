@@ -3,3 +3,13 @@
 @import "../../../src/md3.css";
 @source "../../../src/";
 @import "../../../src/integrations/tailwindcss/md3-tailwindcss.css";
+
+html {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+}

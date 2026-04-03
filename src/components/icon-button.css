@@ -7,8 +7,9 @@
     .m3-icon-button__container {
         @apply flex justify-center items-center;
 
-        transition: border-radius var(--md-sys-motion-spring-fast-spatial),
-            background-color var(--md-sys-motion-spring-fast-effects);
+        transition: border-radius, background-color;
+        transition-timing-function: var(--md-sys-motion-spring-fast-spatial-easing);
+        transition-duration: var(--md-sys-motion-spring-fast-spatial-duration);
     }
     .m3-icon-button:disabled {
         @apply pointer-events-none;

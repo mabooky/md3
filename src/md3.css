@@ -11,6 +11,5 @@
 /* Layer 3: 컴포넌트 스타일 정의 */
 @import "./components/button.css";
 @import "./components/card.css";
-@import "./components/checkbox.css";
 @import "./components/icon-button.css";
 @import "./components/navigation-bar.css";

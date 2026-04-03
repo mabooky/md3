@@ -15,7 +15,6 @@ export const AppBar = Object.assign(AppBarRoot, {
 export * from "./components/Button"
 export * from "./components/ButtonGroup"
 export * from "./components/Card"
-export * from "./components/Checkbox"
 export * from "./components/FAB"
 export * from "./components/IconButton"
 export const NavigationBar = Object.assign(NavigationBarRoot, {

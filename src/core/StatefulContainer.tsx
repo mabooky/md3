@@ -17,14 +17,12 @@ export function StatefulContainer({
     className,
     usesRipple = true, // TODO: Ripple 효과 구현
     children,
-    ...props
-    // disabled를 받아서 0.38의 전체 불투명도를 적용하지 않는 이유는, disabled 상태의 불투명도가 0.38이
-    // 아닌 경우도 존재하기 때문이다. 따라서 disabled 상태의 컨텐츠 불투명도는 컴포넌트에서 개별적으로 적용해야 한다.
+    ...props 
 }: StatefulContainerProps) {
     return (
         <div
             ref={ref}
-            className={cn(`tailored-stateful-container`, className)}
+            className={cn(`m3-stateful-container`, className)}
             {...props}>
 
             {children}

@@ -1,8 +1,0 @@
-:root {
-    --md3-shadow-elevation-level0: 0px 0px 0px 0px color-mix(in oklab, var(--md-sys-color-shadow) 20%, transparent), 0px 0px 0px 0px color-mix(in oklab, var(--md-sys-color-shadow) 14%, transparent), 0px 0px 0px 0px color-mix(in oklab, var(--md-sys-color-shadow) 12%, transparent);
-    --md3-shadow-elevation-level1: 0px 2px 1px -1px color-mix(in oklab, var(--md-sys-color-shadow) 20%, transparent), 0px 1px 1px 0px color-mix(in oklab, var(--md-sys-color-shadow) 14%, transparent), 0px 1px 3px 0px color-mix(in oklab, var(--md-sys-color-shadow) 12%, transparent);
-    --md3-shadow-elevation-level2: 0px 3px 3px -2px color-mix(in oklab, var(--md-sys-color-shadow) 20%, transparent), 0px 3px 4px 0px color-mix(in oklab, var(--md-sys-color-shadow) 14%, transparent), 0px 1px 8px 0px color-mix(in oklab, var(--md-sys-color-shadow) 12%, transparent);
-    --md3-shadow-elevation-level3: 0px 3px 5px -1px color-mix(in oklab, var(--md-sys-color-shadow) 20%, transparent), 0px 6px 10px 0px color-mix(in oklab, var(--md-sys-color-shadow) 14%, transparent), 0px 1px 18px 0px color-mix(in oklab, var(--md-sys-color-shadow) 12%, transparent);
-    --md3-shadow-elevation-level4: 0px 5px 5px -3px color-mix(in oklab, var(--md-sys-color-shadow) 20%, transparent), 0px 8px 10px 1px color-mix(in oklab, var(--md-sys-color-shadow) 14%, transparent), 0px 3px 14px 2px color-mix(in oklab, var(--md-sys-color-shadow) 12%, transparent);
-    --md3-shadow-elevation-level5: 0px 7px 8px -4px color-mix(in oklab, var(--md-sys-color-shadow) 20%, transparent), 0px 12px 17px 2px color-mix(in oklab, var(--md-sys-color-shadow) 14%, transparent), 0px 5px 22px 4px color-mix(in oklab, var(--md-sys-color-shadow) 12%, transparent);
-}

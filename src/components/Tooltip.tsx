@@ -1,5 +1,6 @@
 import { ComponentProps } from "react";
 import { cn } from "@m3/utils/cn";
+import { Container } from "../core/Container";
 
 interface TooltipProps extends ComponentProps<"div"> {
     variant?: 'plain' | 'rich';
@@ -18,7 +19,7 @@ export function Tooltip({
     };
 
     return (
-        <div
+        <Container
             ref={ref}
             className={cn(
                 variantStyles[variant],
@@ -26,6 +27,6 @@ export function Tooltip({
             )}
             {...props}>
             {children}
-        </div>
+        </Container>
     )   
 }
