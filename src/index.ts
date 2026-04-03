@@ -1,7 +1,6 @@
 import { AppBarHeadline, AppBarLeadingButton, AppBarRoot, AppBarTrailingButton } from "./components/AppBar"
 import { NavigationBarRoot, NavigationBarItem } from "./components/NavigationBar"
 
-export * from "./core/Container"
 export * from "./core/Icon"
 export * from "./core/InteractiveComponent"
 export * from "./core/StatefulContainer"
