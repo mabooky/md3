@@ -25,8 +25,8 @@ export default function ButtonPage() {
                 variant="elevated" 
                 selected={selections[0]}
                 onClick={() => toggleSelection(0)}>
-                <Icon>add</Icon>
                 Elevated Button
+                <Icon>edit</Icon>
             </Button>
             <Button size="xs" shape="square" variant="elevated">Elevated Button</Button>
             <br />
@@ -37,6 +37,7 @@ export default function ButtonPage() {
                 variant="filled" 
                 selected={selections[1]}
                 onClick={() => toggleSelection(1)}>
+                <Icon>edit</Icon>
                 Filled Button
             </Button>
             <Button size="sm" shape="square" variant="filled">Filled Button</Button>
@@ -48,6 +49,7 @@ export default function ButtonPage() {
                 variant="tonal" 
                 selected={selections[2]} 
                 onClick={() => toggleSelection(2)}>
+                <Icon>edit</Icon>
                 Tonal Button
             </Button>
             <Button size="md" shape="square" variant="tonal">Tonal Button</Button>
@@ -59,6 +61,7 @@ export default function ButtonPage() {
                 variant="outlined" 
                 selected={selections[3]} 
                 onClick={() => toggleSelection(3)}>
+                <Icon>edit</Icon>
                 Outlined Button
             </Button>
             <Button size="lg" shape="square" variant="outlined">Outlined Button</Button>
@@ -70,6 +73,7 @@ export default function ButtonPage() {
                 variant="text" 
                 selected={selections[4]} 
                 onClick={() => toggleSelection(4)}>
+                <Icon>edit</Icon>
                 Text Button
             </Button>
             <Button size="xl" shape="square" variant="text">Text Button</Button>

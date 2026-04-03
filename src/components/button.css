@@ -1,12 +1,16 @@
 @layer md3-components {
-    .md3-button > .md3-button__container {
+    .md3-button {
+        user-select: none;
+    }
+
+    .md3-button__container {
         display: flex;
         justify-content: center;
         align-items: center;
     }
 
-    .md3-button > :is(.md3-button__container, .md3-button__state-layer) {
-        transition: border-radius 350ms cubic-bezier(0.42, 1.67, 0.21, 0.90);
+    .md3-button__container, .md3-button__state-layer {
+        transition: border-radius var(--md3-motion-expressive-fast-spatial);
     }
 
     .md3-button[data-variant="elevated"] {
@@ -136,6 +140,11 @@
         &[data-shape="square"][data-selected="true"] > :is(.md3-button__container, .md3-button__state-layer) {
             border-radius: calc(16 / 16 * 1rem); /* Fully rounded */
         }
+
+        & .md3-icon {
+            font-size: calc(20 / 16 * 1rem) !important;
+            margin-inline-end: calc(8 / 16 * 1rem);
+        }
     }
 
     .md3-button[data-size="sm"] {
@@ -175,6 +184,11 @@
 
         &[data-shape="square"][data-selected="true"] > :is(.md3-button__container, .md3-button__state-layer) {
             border-radius: calc(20 / 16 * 1rem); /* Fully rounded */
+        }
+
+        & .md3-icon {
+            font-size: calc(20 / 16 * 1rem) !important;
+            margin-inline-end: calc(8 / 16 * 1rem);
         }
     }
 
@@ -216,6 +230,11 @@
         &[data-shape="square"][data-selected="true"] > :is(.md3-button__container, .md3-button__state-layer) {
             border-radius: calc(28 / 16 * 1rem); /* Fully rounded */
         }
+
+        & .md3-icon {
+            font-size: calc(24 / 16 * 1rem) !important;
+            margin-inline-end: calc(8 / 16 * 1rem);
+        }
     }
 
     .md3-button[data-size="lg"] {
@@ -256,6 +275,11 @@
         &[data-shape="square"][data-selected="true"] > :is(.md3-button__container, .md3-button__state-layer) {
             border-radius: calc(48 / 16 * 1rem); /* Fully rounded */
         }
+
+        & .md3-icon {
+            font-size: calc(32 / 16 * 1rem) !important;
+            margin-inline-end: calc(12 / 16 * 1rem);
+        }
     }
 
     .md3-button[data-size="xl"] {
@@ -295,6 +319,11 @@
 
         &[data-shape="square"][data-selected="true"] > :is(.md3-button__container, .md3-button__state-layer) {
             border-radius: calc(68 / 16 * 1rem); /* Fully rounded */
+        }
+
+        & .md3-icon {
+            font-size: calc(40 / 16 * 1rem) !important;
+            margin-inline-end: calc(16 / 16 * 1rem);
         }
     }
 }
