@@ -1,12 +1,10 @@
 'use client';
 
 import { cn } from "@m3/utils/cn";
-import { Container, ContainerProps } from "@m3/core/Container";
 import { IconButton, IconButtonProps } from "./IconButton";
 import { ComponentProps, createContext, useContext } from "react";
 
 /* AppBarContext 정의 --------------------------------------------------------- */
-
 type AppBarContextValue = {
     variant: NonNullable<AppBarProps['variant']>;
 }
@@ -17,11 +15,8 @@ function useAppBarContext() {
     return useContext(AppBarContext);
 }
 
-
-
 /* AppBarRoot --------------------------------------------------------------- */
-
-export type AppBarProps = ContainerProps & {
+export type AppBarProps = ComponentProps<'div'> & {
     variant?: 'search' | 'small' | 'medium-flexible' | 'large-flexible'
 }
 
@@ -40,10 +35,10 @@ export function AppBarRoot({
     }
 
     return (
-        <Container
+        <div
             ref={ref}
             className={cn(
-                `w-full bg-surface flex px-1`,
+                `relative w-full z-10 bg-surface flex px-1`,
                 variantStyles[variant],
                 className
             )}
@@ -51,14 +46,11 @@ export function AppBarRoot({
             <AppBarContext.Provider value={{ variant }}>
                 {children}
             </AppBarContext.Provider>
-        </Container>
+        </div>
     )
 }
 
-
-
 /* AppBarLeadingButton ------------------------------------------------------ */
-
 export type AppBarLeadingButtonProps = IconButtonProps;
 
 export function AppBarLeadingButton({
@@ -84,10 +76,7 @@ export function AppBarLeadingButton({
     )
 }
 
-
-
 /* AppBarTrailingButton ----------------------------------------------------- */
-
 export type AppBarTrailingButtonProps = IconButtonProps;
 
 export function AppBarTrailingButton({
@@ -111,10 +100,7 @@ export function AppBarTrailingButton({
     )
 }
 
-
-
 /* AppBarHeadline ----------------------------------------------------------- */
-
 export type AppBarHeadlineProps = ComponentProps<"p">;
 
 export function AppBarHeadline({
