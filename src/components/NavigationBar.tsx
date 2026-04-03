@@ -31,7 +31,7 @@ function useNavigationBarContext() {
 
 /* NavigationBarRoot -------------------------------------------------------- */
 
-type NavigationBarProps = Omit<ComponentProps<"nav">, "onChange"> & {
+export type NavigationBarProps = Omit<ComponentProps<"nav">, "onChange"> & {
     itemLayout?: 'vertical' | 'horizontal';
     value: string,
     onChange?: (value: string) => void;

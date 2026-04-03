@@ -1,28 +1,36 @@
 @layer components {
-    .m3-stateful-container {
+    .tailored-stateful-container {
         position: relative;
     }
 
     /* 상태 레이어를 after 요소로 정의 ----------------------------------------------------- */
-    .m3-stateful-container::after {
-        @apply content-[''] absolute inset-0 size-full rounded-[inherit];
-        @apply opacity-0 pointer-events-none bg-current;
+    .tailored-stateful-container::after {
+        position: absolute;
+        content: '';
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: inherit;
+        opacity: 0;
+        pointer-events: none;
+        background-color: currentcolor;
     }
     
     /* 컴포넌트 최상위 요소인 TouchTarget의 상호작용 이벤트에 반응 */
-    .m3-touch-target:hover .m3-stateful-container::after {
-        @apply opacity-8;
+    .tailored-touch-target:hover .tailored-stateful-container::after {
+        opacity: 0.08;
     }
 
-    .m3-touch-target:focus-visible .m3-stateful-container::after {
-        @apply opacity-10;
+    .tailored-touch-target:focus-visible .tailored-stateful-container::after {
+        opacity: 0.1;
     }
 
-    .m3-touch-target:active .m3-stateful-container::after {
-        @apply opacity-10;
+    .tailored-touch-target:active .tailored-stateful-container::after {
+        opacity: 0.1;
     }
     
-    .m3-touch-target:focus-visible .m3-stateful-container {
-        @apply outline-3 outline-offset-2 outline-secondary;
+    .tailored-touch-target:focus-visible .tailored-stateful-container {
+        outline: var(--md-sys-color-secondary) solid 3px;
+        outline-offset: 2px;
     }
 }
