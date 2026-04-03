@@ -1,0 +1,300 @@
+@layer md3-components {
+    .md3-button > .md3-button__container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .md3-button > :is(.md3-button__container, .md3-button__state-layer) {
+        transition: border-radius 350ms cubic-bezier(0.42, 1.67, 0.21, 0.90);
+    }
+
+    .md3-button[data-variant="elevated"] {
+        > .md3-button__container {
+            background-color: var(--md-sys-color-surface-container-low);
+            color: var(--md-sys-color-primary);
+            box-shadow: var(--md3-shadow-elevation-level1);
+        }
+
+        &[data-selected="true"] > .md3-button__container {
+            background-color: var(--md-sys-color-primary);
+            color: var(--md-sys-color-on-primary);
+        }
+
+        &:disabled > .md3-button__container {
+            background-color: color-mix(in oklab, var(--md-sys-color-on-surface) 10%, transparent);
+            color: color-mix(in oklab, var(--md-sys-color-on-surface) 38%, transparent);
+            box-shadow: none;
+        }
+    }
+
+    .md3-button[data-variant="filled"] {
+        > .md3-button__container {
+            background-color: var(--md-sys-color-primary);
+            color: var(--md-sys-color-on-primary);
+        }
+
+        &[data-selected="false"] > .md3-button__container {
+            background-color: var(--md-sys-color-surface-container);
+            color: var(--md-sys-color-on-surface-variant);
+        }
+
+        &:disabled > .md3-button__container {
+            background-color: color-mix(in oklab, var(--md-sys-color-on-surface) 10%, transparent);
+            color: color-mix(in oklab, var(--md-sys-color-on-surface) 38%, transparent);
+            box-shadow: none;
+        }
+    }
+
+    .md3-button[data-variant="tonal"] {
+        > .md3-button__container {
+            background-color: var(--md-sys-color-secondary-container);
+            color: var(--md-sys-color-on-secondary-container);
+        }
+
+        &[data-selected="true"] > .md3-button__container {
+            background-color: var(--md-sys-color-secondary);
+            color: var(--md-sys-color-on-secondary);
+        }
+
+        &:disabled > .md3-button__container {
+            background-color: color-mix(in oklab, var(--md-sys-color-on-surface) 10%, transparent);
+            color: color-mix(in oklab, var(--md-sys-color-on-surface) 38%, transparent);
+            box-shadow: none;
+        }
+    }
+
+    .md3-button[data-variant="outlined"] {
+        > .md3-button__container {
+            border-style: solid;
+            border-color: var(--md-sys-color-outline-variant);
+            color: var(--md-sys-color-on-surface-variant);
+        }
+
+        /* 명시도 뻥튀기 필요 */
+        &[data-selected="true"] > .md3-button__container:not(#\9) {
+            border-color: transparent;
+            background-color: var(--md-sys-color-inverse-surface);
+            color: var(--md-sys-color-inverse-on-surface);
+        }
+
+        &:disabled > .md3-button__container {
+            color: color-mix(in oklab, var(--md-sys-color-on-surface) 38%, transparent);
+        }
+
+        &[data-selected="true"]:disabled > .md3-button__container {
+            background-color: color-mix(in oklab, var(--md-sys-color-on-surface) 10%, transparent);
+        }
+    }
+
+    .md3-button[data-variant="text"] {
+        > .md3-button__container {
+            color: var(--md-sys-color-primary);
+        }
+
+        &:disabled > .md3-button__container {
+            background-color: color-mix(in oklab, var(--md-sys-color-on-surface) 10%, transparent);
+            color: color-mix(in oklab, var(--md-sys-color-on-surface) 38%, transparent);
+        }
+    }
+
+    .md3-button[data-size="xs"] {
+        > :is(.md3-button__container, .md3-button__state-layer) {
+            height: calc(32 / 16 * 1rem);
+        }
+
+        > .md3-button__container {
+            padding-inline: calc(12 / 16 * 1rem);
+            font-family: var(--md-sys-typescale-label-large-font);
+            font-weight: var(--md-sys-typescale-label-large-weight);
+            font-size: var(--md-sys-typescale-label-large-size);
+            letter-spacing: var(--md-sys-typescale-label-large-tracking);
+            line-height: var(--md-sys-typescale-label-large-line-height);
+        }
+
+        &[data-variant="outlined"] > .md3-button__container {
+            border-width: 1px;
+        }
+
+        &[data-shape="round"] > :is(.md3-button__container, .md3-button__state-layer) {
+            border-radius: calc(16 / 16 * 1rem); /* Fully rounded */
+        }
+
+        &[data-shape="square"] > :is(.md3-button__container, .md3-button__state-layer) {
+            border-radius: var(--md-sys-shape-corner-value-medium);
+        }
+
+        /* 명시도 뻥튀기 필요 */
+        &:active > :is(.md3-button__container, .md3-button__state-layer):not(#\9) {
+            border-radius: var(--md-sys-shape-corner-value-small);
+        }
+
+        &[data-shape="round"][data-selected="true"] > :is(.md3-button__container, .md3-button__state-layer) {
+            border-radius: var(--md-sys-shape-corner-value-medium);
+        }
+
+        &[data-shape="square"][data-selected="true"] > :is(.md3-button__container, .md3-button__state-layer) {
+            border-radius: calc(16 / 16 * 1rem); /* Fully rounded */
+        }
+    }
+
+    .md3-button[data-size="sm"] {
+        > :is(.md3-button__container, .md3-button__state-layer) {
+            height: calc(40 / 16 * 1rem);
+        }
+
+        > .md3-button__container {
+            padding-inline: calc(16 / 16 * 1rem);
+            font-family: var(--md-sys-typescale-label-large-font);
+            font-weight: var(--md-sys-typescale-label-large-weight);
+            font-size: var(--md-sys-typescale-label-large-size);
+            letter-spacing: var(--md-sys-typescale-label-large-tracking);
+            line-height: var(--md-sys-typescale-label-large-line-height);
+        }
+
+        &[data-variant="outlined"] > .md3-button__container {
+            border-width: 1px;
+        }
+
+        &[data-shape="round"] > :is(.md3-button__container, .md3-button__state-layer) {
+            border-radius: calc(20 / 16 * 1rem); /* Fully rounded */
+        }
+
+        &[data-shape="square"] > :is(.md3-button__container, .md3-button__state-layer) {
+            border-radius: var(--md-sys-shape-corner-value-medium);
+        }
+
+        /* 명시도 뻥튀기 필요 */
+        &:active > :is(.md3-button__container, .md3-button__state-layer):not(#\9) {
+            border-radius: var(--md-sys-shape-corner-value-small);
+        }
+
+        &[data-shape="round"][data-selected="true"] > :is(.md3-button__container, .md3-button__state-layer) {
+            border-radius: var(--md-sys-shape-corner-value-medium);
+        }
+
+        &[data-shape="square"][data-selected="true"] > :is(.md3-button__container, .md3-button__state-layer) {
+            border-radius: calc(20 / 16 * 1rem); /* Fully rounded */
+        }
+    }
+
+    .md3-button[data-size="md"] {
+        > :is(.md3-button__container, .md3-button__state-layer) {
+            height: calc(56 / 16 * 1rem);
+        }
+
+        > .md3-button__container {
+            padding-inline: calc(24 / 16 * 1rem);
+            font-family: var(--md-sys-typescale-title-medium-font);
+            font-weight: var(--md-sys-typescale-title-medium-weight);
+            font-size: var(--md-sys-typescale-title-medium-size);
+            letter-spacing: var(--md-sys-typescale-title-medium-tracking);
+            line-height: var(--md-sys-typescale-title-medium-line-height);
+        }
+
+        &[data-variant="outlined"] > .md3-button__container {
+            border-width: 1px;
+        }
+
+        &[data-shape="round"] > :is(.md3-button__container, .md3-button__state-layer) {
+            border-radius: calc(28 / 16 * 1rem); /* Fully rounded */
+        }
+
+        &[data-shape="square"] > :is(.md3-button__container, .md3-button__state-layer) {
+            border-radius: var(--md-sys-shape-corner-value-large);
+        }
+
+        /* 명시도 뻥튀기 필요 */
+        &:active > :is(.md3-button__container, .md3-button__state-layer):not(#\9) {
+            border-radius: var(--md-sys-shape-corner-value-medium);
+        }
+
+        &[data-shape="round"][data-selected="true"] > :is(.md3-button__container, .md3-button__state-layer) {
+            border-radius: var(--md-sys-shape-corner-value-large);
+        }
+
+        &[data-shape="square"][data-selected="true"] > :is(.md3-button__container, .md3-button__state-layer) {
+            border-radius: calc(28 / 16 * 1rem); /* Fully rounded */
+        }
+    }
+
+    .md3-button[data-size="lg"] {
+        > :is(.md3-button__container, .md3-button__state-layer) {
+            height: calc(96 / 16 * 1rem);
+        }
+
+        > .md3-button__container {
+            padding-inline: calc(48 / 16 * 1rem);
+            font-family: var(--md-sys-typescale-headline-small-font);
+            font-weight: var(--md-sys-typescale-headline-small-weight);
+            font-size: var(--md-sys-typescale-headline-small-size);
+            letter-spacing: var(--md-sys-typescale-headline-small-tracking);
+            line-height: var(--md-sys-typescale-headline-small-line-height);
+        }
+
+        &[data-variant="outlined"] > .md3-button__container {
+            border-width: 2px;
+        }
+
+        &[data-shape="round"] > :is(.md3-button__container, .md3-button__state-layer) {
+            border-radius: calc(48 / 16 * 1rem); /* Fully rounded */
+        }
+
+        &[data-shape="square"] > :is(.md3-button__container, .md3-button__state-layer) {
+            border-radius: var(--md-sys-shape-corner-value-extra-large);
+        }
+
+        /* 명시도 뻥튀기 필요 */
+        &:active > :is(.md3-button__container, .md3-button__state-layer):not(#\9) {
+            border-radius: var(--md-sys-shape-corner-value-large);
+        }
+
+        &[data-shape="round"][data-selected="true"] > :is(.md3-button__container, .md3-button__state-layer) {
+            border-radius: var(--md-sys-shape-corner-value-extra-large);
+        }
+
+        &[data-shape="square"][data-selected="true"] > :is(.md3-button__container, .md3-button__state-layer) {
+            border-radius: calc(48 / 16 * 1rem); /* Fully rounded */
+        }
+    }
+
+    .md3-button[data-size="xl"] {
+        > :is(.md3-button__container, .md3-button__state-layer) {
+            height: calc(136 / 16 * 1rem);
+        }
+
+        > .md3-button__container {
+            padding-inline: calc(64 / 16 * 1rem);
+            font-family: var(--md-sys-typescale-headline-large-font);
+            font-weight: var(--md-sys-typescale-headline-large-weight);
+            font-size: var(--md-sys-typescale-headline-large-size);
+            letter-spacing: var(--md-sys-typescale-headline-large-tracking);
+            line-height: var(--md-sys-typescale-headline-large-line-height);
+        }
+
+        &[data-variant="outlined"] > .md3-button__container {
+            border-width: 3px;
+        }
+
+        &[data-shape="round"] > :is(.md3-button__container, .md3-button__state-layer) {
+            border-radius: calc(68 / 16 * 1rem); /* Fully rounded */
+        }
+
+        &[data-shape="square"] > :is(.md3-button__container, .md3-button__state-layer) {
+            border-radius: var(--md-sys-shape-corner-value-extra-large);
+        }
+
+        /* 명시도 뻥튀기 필요 */
+        &:active > :is(.md3-button__container, .md3-button__state-layer):not(#\9) {
+            border-radius: var(--md-sys-shape-corner-value-large);
+        }
+
+        &[data-shape="round"][data-selected="true"] > :is(.md3-button__container, .md3-button__state-layer) {
+            border-radius: var(--md-sys-shape-corner-value-extra-large);
+        }
+
+        &[data-shape="square"][data-selected="true"] > :is(.md3-button__container, .md3-button__state-layer) {
+            border-radius: calc(68 / 16 * 1rem); /* Fully rounded */
+        }
+    }
+}

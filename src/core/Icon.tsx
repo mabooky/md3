@@ -1,7 +1,7 @@
 'use client';
 
 import { useM3Context } from "@m3/providers/M3Provider";
-import { cn } from "@m3/utils/cn";
+import clsx from "clsx";
 import { ComponentProps } from "react";
 
 type IconProps = ComponentProps<'span'>;
@@ -17,7 +17,7 @@ export function Icon({
     return (
         <span
             ref={ref}
-            className={cn(`material-symbols-${context.iconStyle}`, className)}
+            className={clsx(`md3-icon material-symbols-${context.iconStyle}`, className)}
             {...props}>
             {children}
         </span>
