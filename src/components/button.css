@@ -1,5 +1,9 @@
 @layer md3-components {
-    .md3-button > .md3-button__container {
+    .md3-button {
+        user-select: none;
+    }
+
+    .md3-button__container {
         display: flex;
         justify-content: center;
         align-items: center;
